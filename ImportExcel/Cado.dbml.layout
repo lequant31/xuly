@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Cado">
+  <DataContextMoniker Name="/CadoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bd4cbd8b-c3f7-4e66-89bc-1c9827c0783c" absoluteBounds="6.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/CadoDataContext/cachthuccado" />
+      <nestedChildShapes>
+        <elementListCompartment Id="afccfef6-1acc-490a-830f-cbf031cdfde5" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="72abc2f8-a8ac-4817-9a89-81386e1c6db3" absoluteBounds="3.5, 1.125, 2, 4.8477197265625005">
+      <DataClassMoniker Name="/CadoDataContext/thongtinchung" />
+      <nestedChildShapes>
+        <elementListCompartment Id="723d20b2-39d0-4459-81a5-eea061d8d587" absoluteBounds="3.515, 1.585, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="25294ff5-c3c7-43a6-bcf6-be437d603cc4" absoluteBounds="0.75, 6.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/CadoDataContext/doibong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b6449c7-c59a-4dc4-8f63-509a7ca73d51" absoluteBounds="0.765, 7.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6447fe70-f994-4a22-b617-f3e9f3527a61" absoluteBounds="6.75, 2.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/CadoDataContext/giaidau" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51d6e06b-39b7-4a8a-bd48-cb80a3d8fbd7" absoluteBounds="6.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="58c7df7b-3d3b-494a-aedf-98ce687df9e1" absoluteBounds="0.75, 2.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CadoDataContext/quanlyTK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f48e0099-f624-497f-9b44-157d32f16e86" absoluteBounds="0.765, 2.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 3.45274983723958); (3.5 : 3.45274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CadoDataContext/quanlyTK/quanlyTK_thongtinchung" />
+      <nodes>
+        <classShapeMoniker Id="58c7df7b-3d3b-494a-aedf-98ce687df9e1" />
+        <classShapeMoniker Id="72abc2f8-a8ac-4817-9a89-81386e1c6db3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

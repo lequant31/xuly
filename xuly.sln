@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xuly", "xuly\xuly.csproj", "{8F5F20C0-4363-4815-A246-CBB9A39127AE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Xulycadobongda", "Xulycadobongda\Xulycadobongda.vdproj", "{B8D73242-0235-454E-88EE-58F1F51CE0B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F5F20C0-4363-4815-A246-CBB9A39127AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5F20C0-4363-4815-A246-CBB9A39127AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5F20C0-4363-4815-A246-CBB9A39127AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5F20C0-4363-4815-A246-CBB9A39127AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D73242-0235-454E-88EE-58F1F51CE0B2}.Debug|Any CPU.ActiveCfg = Debug
+		{B8D73242-0235-454E-88EE-58F1F51CE0B2}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {896C1B72-589A-4772-BBBD-25D6CBF48ACE}
+	EndGlobalSection
+EndGlobal

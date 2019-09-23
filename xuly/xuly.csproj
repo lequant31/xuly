@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F5F20C0-4363-4815-A246-CBB9A39127AE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>xuly</RootNamespace>
+    <AssemblyName>xuly</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Papirus-Team-Papirus-Apps-Github-mirkobrombin-football.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1" />
+    <Reference Include="DevExpress.Data.v18.1" />
+    <Reference Include="DevExpress.Utils.v18.1" />
+    <Reference Include="DevExpress.XtraBars.v18.1" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core" />
+    <Reference Include="DevExpress.XtraEditors.v18.1" />
+    <Reference Include="DevExpress.Printing.v18.1.Core" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DocX">
+      <HintPath>..\..\..\..\cobac\cobac\DocX.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cachthuccado.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cadobongda.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cadobongda.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cadobongda.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cadobongda.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cadobongda.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="cmdExcel.cs" />
+    <Compile Include="doibong.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="giaidau.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel.Designer.cs">
+      <DependentUpon>ImportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager Account.Designer.cs">
+      <DependentUpon>Manager Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quanlyTK.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="thongkechitiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thongkechitiet.Designer.cs">
+      <DependentUpon>thongkechitiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thongtincado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thongtincado.Designer.cs">
+      <DependentUpon>Thongtincado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thongtincado_Result.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="thongtinchung.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="thongtin_Result.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="timkiem_Result.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tinhtong_Result.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="view_quanlytk.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <Compile Include="view_thongtinchung.cs">
+      <DependentUpon>cadobongda.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel.resx">
+      <DependentUpon>ImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager Account.resx">
+      <DependentUpon>Manager Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="thongkechitiet.resx">
+      <DependentUpon>thongkechitiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thongtincado.resx">
+      <DependentUpon>Thongtincado.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="cadobongda.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>cadobongda.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="cadobongda.edmx.diagram">
+      <DependentUpon>cadobongda.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cadobongda.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>cadobongda.edmx</DependentUpon>
+      <LastGenOutput>cadobongda.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="cadobongda.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>cadobongda.edmx</DependentUpon>
+      <LastGenOutput>cadobongda.cs</LastGenOutput>
+    </Content>
+    <Content Include="Papirus-Team-Papirus-Apps-Github-mirkobrombin-football.ico" />
+    <None Include="Resources\Microsoft-Excel-2013-icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

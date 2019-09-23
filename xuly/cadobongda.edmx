@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cobac4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cachthuccado">
+          <Key>
+            <PropertyRef Name="idcachthuccado" />
+          </Key>
+          <Property Name="idcachthuccado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tencachthuccado" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="doibong">
+          <Key>
+            <PropertyRef Name="idtendoibong" />
+          </Key>
+          <Property Name="idtendoibong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tendoibong" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="giaidau">
+          <Key>
+            <PropertyRef Name="idgiadau" />
+          </Key>
+          <Property Name="idgiadau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tengiaidau" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="quanlyTK">
+          <Key>
+            <PropertyRef Name="idTK" />
+          </Key>
+          <Property Name="idTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoTK" Type="nvarchar" MaxLength="20" />
+          <Property Name="TenTkDayDU" Type="nvarchar" MaxLength="25" />
+          <Property Name="TenTk" Type="nvarchar" MaxLength="10" />
+          <Property Name="NguoiCaDoCung" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenNguoiCaDoCung" Type="nvarchar" MaxLength="50" />
+          <Property Name="GiaUSDTK" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="thongtinchung">
+          <Key>
+            <PropertyRef Name="idthongtin" />
+          </Key>
+          <Property Name="idthongtin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_quanlyTK_idTK" Type="int" Nullable="false" />
+          <Property Name="thoigiancado" Type="datetime" Nullable="false" />
+          <Property Name="gio" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ngay" Type="date" Nullable="false" />
+          <Property Name="cuacado" Type="nvarchar" MaxLength="50" />
+          <Property Name="cachthuccado" Type="nvarchar" MaxLength="50" />
+          <Property Name="tylechap" Type="nvarchar" MaxLength="50" />
+          <Property Name="hinhthuccado" Type="nvarchar" MaxLength="50" />
+          <Property Name="doibong1" Type="nvarchar" MaxLength="100" />
+          <Property Name="doibong2" Type="nvarchar" MaxLength="100" />
+          <Property Name="tengiaidau" Type="nvarchar(max)" />
+          <Property Name="giaidaumorong" Type="nvarchar(max)" />
+          <Property Name="tylecuoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="tiencuoc" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="tienthang_thua" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ketqua_trongkeo" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="com" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="trangthai" Type="nvarchar" MaxLength="10" />
+          <Property Name="hiepcado" Type="nvarchar" MaxLength="10" />
+          <Property Name="weekofyear" Type="int" />
+          <Property Name="visible" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cobac4.dbo.view_quanlytk' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_quanlytk">
+          <Key>
+            <PropertyRef Name="idTK" />
+          </Key>
+          <Property Name="idTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoTK" Type="nvarchar" MaxLength="20" />
+          <Property Name="TenTkDayDU" Type="nvarchar" MaxLength="25" />
+          <Property Name="TenTk" Type="nvarchar" MaxLength="10" />
+          <Property Name="NguoiCaDoCung" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenNguoiCaDoCung" Type="nvarchar" MaxLength="50" />
+          <Property Name="GiaUSDTK" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_thongtinchung">
+          <Key>
+            <PropertyRef Name="idthongtin" />
+            <PropertyRef Name="id_quanlyTK_idTK" />
+            <PropertyRef Name="thoigiancado" />
+            <PropertyRef Name="gio" />
+            <PropertyRef Name="ngay" />
+          </Key>
+          <Property Name="idthongtin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_quanlyTK_idTK" Type="int" Nullable="false" />
+          <Property Name="thoigiancado" Type="datetime" Nullable="false" />
+          <Property Name="gio" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ngay" Type="date" Nullable="false" />
+          <Property Name="cuacado" Type="nvarchar" MaxLength="50" />
+          <Property Name="cachthuccado" Type="nvarchar" MaxLength="50" />
+          <Property Name="tylechap" Type="nvarchar" MaxLength="50" />
+          <Property Name="hinhthuccado" Type="nvarchar" MaxLength="50" />
+          <Property Name="doibong1" Type="nvarchar" MaxLength="100" />
+          <Property Name="doibong2" Type="nvarchar" MaxLength="100" />
+          <Property Name="tengiaidau" Type="nvarchar(max)" />
+          <Property Name="giaidaumorong" Type="nvarchar(max)" />
+          <Property Name="tylecuoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="tiencuoc" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="tienthang_thua" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ketqua_trongkeo" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="com" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="trangthai" Type="nvarchar" MaxLength="10" />
+          <Property Name="hiepcado" Type="nvarchar" MaxLength="10" />
+          <Property Name="weekofyear" Type="int" />
+          <Property Name="visible" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_thongtinchung_quanlyTK">
+          <End Role="quanlyTK" Type="Self.quanlyTK" Multiplicity="1" />
+          <End Role="thongtinchung" Type="Self.thongtinchung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quanlyTK">
+              <PropertyRef Name="idTK" />
+            </Principal>
+            <Dependent Role="thongtinchung">
+              <PropertyRef Name="id_quanlyTK_idTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="proc_cachthuccado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="proc_sotaikhoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sotk" Type="int" Mode="In" />
+        </Function>
+        <Function Name="proc_tendoibong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="proc_tengiaidau" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="show_hide" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idthongtin" Type="int" Mode="In" />
+          <Parameter Name="visible" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="thongtin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idtk" Type="int" Mode="In" />
+        </Function>
+        <Function Name="thongtincado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="timkiem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sotk" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="tinhtong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idtk" Type="int" Mode="In" />
+          <Parameter Name="tygia" Type="decimal" Mode="In" />
+        </Function>
+        <EntityContainer Name="cobac4ModelStoreContainer">
+          <EntitySet Name="cachthuccado" EntityType="Self.cachthuccado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doibong" EntityType="Self.doibong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="giaidau" EntityType="Self.giaidau" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quanlyTK" EntityType="Self.quanlyTK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="thongtinchung" EntityType="Self.thongtinchung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="view_quanlytk" EntityType="Self.view_quanlytk" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_quanlytk].[idTK] AS [idTK], 
+    [view_quanlytk].[SoTK] AS [SoTK], 
+    [view_quanlytk].[TenTkDayDU] AS [TenTkDayDU], 
+    [view_quanlytk].[TenTk] AS [TenTk], 
+    [view_quanlytk].[NguoiCaDoCung] AS [NguoiCaDoCung], 
+    [view_quanlytk].[TenNguoiCaDoCung] AS [TenNguoiCaDoCung], 
+    [view_quanlytk].[GiaUSDTK] AS [GiaUSDTK]
+    FROM [dbo].[view_quanlytk] AS [view_quanlytk]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_thongtinchung" EntityType="Self.view_thongtinchung" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_thongtinchung].[idthongtin] AS [idthongtin], 
+    [view_thongtinchung].[id_quanlyTK_idTK] AS [id_quanlyTK_idTK], 
+    [view_thongtinchung].[thoigiancado] AS [thoigiancado], 
+    [view_thongtinchung].[gio] AS [gio], 
+    [view_thongtinchung].[ngay] AS [ngay], 
+    [view_thongtinchung].[cuacado] AS [cuacado], 
+    [view_thongtinchung].[cachthuccado] AS [cachthuccado], 
+    [view_thongtinchung].[tylechap] AS [tylechap], 
+    [view_thongtinchung].[hinhthuccado] AS [hinhthuccado], 
+    [view_thongtinchung].[doibong1] AS [doibong1], 
+    [view_thongtinchung].[doibong2] AS [doibong2], 
+    [view_thongtinchung].[tengiaidau] AS [tengiaidau], 
+    [view_thongtinchung].[giaidaumorong] AS [giaidaumorong], 
+    [view_thongtinchung].[tylecuoc] AS [tylecuoc], 
+    [view_thongtinchung].[tiencuoc] AS [tiencuoc], 
+    [view_thongtinchung].[tienthang_thua] AS [tienthang_thua], 
+    [view_thongtinchung].[ketqua_trongkeo] AS [ketqua_trongkeo], 
+    [view_thongtinchung].[com] AS [com], 
+    [view_thongtinchung].[trangthai] AS [trangthai], 
+    [view_thongtinchung].[hiepcado] AS [hiepcado], 
+    [view_thongtinchung].[weekofyear] AS [weekofyear], 
+    [view_thongtinchung].[visible] AS [visible]
+    FROM [dbo].[view_thongtinchung] AS [view_thongtinchung]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_thongtinchung_quanlyTK" Association="Self.FK_thongtinchung_quanlyTK">
+            <End Role="quanlyTK" EntitySet="quanlyTK" />
+            <End Role="thongtinchung" EntitySet="thongtinchung" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cobac4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cachthuccado">
+          <Key>
+            <PropertyRef Name="idcachthuccado" />
+          </Key>
+          <Property Name="idcachthuccado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tencachthuccado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="doibong">
+          <Key>
+            <PropertyRef Name="idtendoibong" />
+          </Key>
+          <Property Name="idtendoibong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tendoibong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="giaidau">
+          <Key>
+            <PropertyRef Name="idgiadau" />
+          </Key>
+          <Property Name="idgiadau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tengiaidau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="quanlyTK">
+          <Key>
+            <PropertyRef Name="idTK" />
+          </Key>
+          <Property Name="idTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoTK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TenTkDayDU" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="TenTk" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenNguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GiaUSDTK" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="thongtinchung" Relationship="Self.FK_thongtinchung_quanlyTK" FromRole="quanlyTK" ToRole="thongtinchung" />
+        </EntityType>
+        <EntityType Name="thongtinchung">
+          <Key>
+            <PropertyRef Name="idthongtin" />
+          </Key>
+          <Property Name="idthongtin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_quanlyTK_idTK" Type="Int32" Nullable="false" />
+          <Property Name="thoigiancado" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ngay" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="cuacado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cachthuccado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tylechap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hinhthuccado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doibong1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doibong2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tengiaidau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="giaidaumorong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tylecuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tiencuoc" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="tienthang_thua" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ketqua_trongkeo" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="com" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="trangthai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="hiepcado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="weekofyear" Type="Int32" />
+          <Property Name="visible" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="quanlyTK" Relationship="Self.FK_thongtinchung_quanlyTK" FromRole="thongtinchung" ToRole="quanlyTK" />
+        </EntityType>
+        <EntityType Name="view_quanlytk">
+          <Key>
+            <PropertyRef Name="idTK" />
+          </Key>
+          <Property Name="idTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoTK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TenTkDayDU" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="TenTk" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenNguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GiaUSDTK" Type="Decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="view_thongtinchung">
+          <Key>
+            <PropertyRef Name="idthongtin" />
+            <PropertyRef Name="id_quanlyTK_idTK" />
+            <PropertyRef Name="thoigiancado" />
+            <PropertyRef Name="gio" />
+            <PropertyRef Name="ngay" />
+          </Key>
+          <Property Name="idthongtin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_quanlyTK_idTK" Type="Int32" Nullable="false" />
+          <Property Name="thoigiancado" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ngay" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="cuacado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cachthuccado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tylechap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hinhthuccado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doibong1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doibong2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tengiaidau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="giaidaumorong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tylecuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tiencuoc" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="tienthang_thua" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ketqua_trongkeo" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="com" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="trangthai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="hiepcado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="weekofyear" Type="Int32" />
+          <Property Name="visible" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_thongtinchung_quanlyTK">
+          <End Role="quanlyTK" Type="Self.quanlyTK" Multiplicity="1" />
+          <End Role="thongtinchung" Type="Self.thongtinchung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quanlyTK">
+              <PropertyRef Name="idTK" />
+            </Principal>
+            <Dependent Role="thongtinchung">
+              <PropertyRef Name="id_quanlyTK_idTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cobacEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cachthuccado" EntityType="Self.cachthuccado" />
+          <EntitySet Name="doibong" EntityType="Self.doibong" />
+          <EntitySet Name="giaidau" EntityType="Self.giaidau" />
+          <EntitySet Name="quanlyTK" EntityType="Self.quanlyTK" />
+          <EntitySet Name="thongtinchung" EntityType="Self.thongtinchung" />
+          <EntitySet Name="view_quanlytk" EntityType="Self.view_quanlytk" />
+          <EntitySet Name="view_thongtinchung" EntityType="Self.view_thongtinchung" />
+          <AssociationSet Name="FK_thongtinchung_quanlyTK" Association="Self.FK_thongtinchung_quanlyTK">
+            <End Role="quanlyTK" EntitySet="quanlyTK" />
+            <End Role="thongtinchung" EntitySet="thongtinchung" />
+          </AssociationSet>
+          <FunctionImport Name="proc_cachthuccado" ReturnType="Collection(String)" />
+          <FunctionImport Name="proc_sotaikhoan" ReturnType="Collection(String)">
+            <Parameter Name="sotk" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="proc_tendoibong" ReturnType="Collection(String)" />
+          <FunctionImport Name="proc_tengiaidau" ReturnType="Collection(String)" />
+          <FunctionImport Name="show_hide">
+            <Parameter Name="idthongtin" Mode="In" Type="Int32" />
+            <Parameter Name="visible" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="thongtin" ReturnType="Collection(cobac4Model.thongtin_Result)">
+            <Parameter Name="idtk" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="thongtincado" ReturnType="Collection(cobac4Model.thongtincado_Result)" />
+          <FunctionImport Name="timkiem" ReturnType="Collection(cobac4Model.timkiem_Result)">
+            <Parameter Name="sotk" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="tinhtong" ReturnType="Collection(cobac4Model.tinhtong_Result)">
+            <Parameter Name="idtk" Mode="In" Type="Int32" />
+            <Parameter Name="tygia" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="thongtin_Result">
+          <Property Type="Int32" Name="idTK" Nullable="false" />
+          <Property Type="String" Name="SoTK" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="idthongtin" Nullable="false" />
+          <Property Type="String" Name="visible" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="ngay" Nullable="false" />
+          <Property Type="Time" Name="gio" Nullable="false" />
+          <Property Type="String" Name="tentrandau" Nullable="true" MaxLength="208" />
+          <Property Type="String" Name="gopthongtin" Nullable="true" />
+          <Property Type="String" Name="tylecuoc" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="tiencuoc" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="tienthang_thua" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="com" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="trangthai" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="thongtincado_Result">
+          <Property Type="Int32" Name="idTK" Nullable="false" />
+          <Property Type="String" Name="SoTK" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TenTk" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TenTkDayDU" Nullable="true" MaxLength="25" />
+          <Property Type="Decimal" Name="GiaUSDTK" Nullable="true" Precision="10" Scale="0" />
+          <Property Type="String" Name="NguoiCaDoCung" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TenNguoiCaDoCung" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="tongketquatrongkeo" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tienthang" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tienthua" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="socom" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="thangthu" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tongtiencuoc" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="timkiem_Result">
+          <Property Type="String" Name="SoTK" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="GiaUSDTK" Nullable="true" Precision="10" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="tinhtong_Result">
+          <Property Type="DateTime" Name="ngay" Nullable="false" />
+          <Property Type="String" Name="tentrandau" Nullable="true" MaxLength="204" />
+          <Property Type="Decimal" Name="USD" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="VND" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="USD1" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="VND1" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tiencuocUSD" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tiencuocVND" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tienthangUSD" Nullable="false" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tienthangVND" Nullable="false" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tienthuaUSD" Nullable="false" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="tienthuaVND" Nullable="false" Precision="38" Scale="2" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cobac4ModelStoreContainer" CdmEntityContainer="cobacEntities">
+          <EntitySetMapping Name="cachthuccado">
+            <EntityTypeMapping TypeName="cobac4Model.cachthuccado">
+              <MappingFragment StoreEntitySet="cachthuccado">
+                <ScalarProperty Name="idcachthuccado" ColumnName="idcachthuccado" />
+                <ScalarProperty Name="tencachthuccado" ColumnName="tencachthuccado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doibong">
+            <EntityTypeMapping TypeName="cobac4Model.doibong">
+              <MappingFragment StoreEntitySet="doibong">
+                <ScalarProperty Name="idtendoibong" ColumnName="idtendoibong" />
+                <ScalarProperty Name="tendoibong" ColumnName="tendoibong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="giaidau">
+            <EntityTypeMapping TypeName="cobac4Model.giaidau">
+              <MappingFragment StoreEntitySet="giaidau">
+                <ScalarProperty Name="idgiadau" ColumnName="idgiadau" />
+                <ScalarProperty Name="tengiaidau" ColumnName="tengiaidau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quanlyTK">
+            <EntityTypeMapping TypeName="cobac4Model.quanlyTK">
+              <MappingFragment StoreEntitySet="quanlyTK">
+                <ScalarProperty Name="idTK" ColumnName="idTK" />
+                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
+                <ScalarProperty Name="TenTkDayDU" ColumnName="TenTkDayDU" />
+                <ScalarProperty Name="TenTk" ColumnName="TenTk" />
+                <ScalarProperty Name="NguoiCaDoCung" ColumnName="NguoiCaDoCung" />
+                <ScalarProperty Name="TenNguoiCaDoCung" ColumnName="TenNguoiCaDoCung" />
+                <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thongtinchung">
+            <EntityTypeMapping TypeName="cobac4Model.thongtinchung">
+              <MappingFragment StoreEntitySet="thongtinchung">
+                <ScalarProperty Name="idthongtin" ColumnName="idthongtin" />
+                <ScalarProperty Name="id_quanlyTK_idTK" ColumnName="id_quanlyTK_idTK" />
+                <ScalarProperty Name="thoigiancado" ColumnName="thoigiancado" />
+                <ScalarProperty Name="gio" ColumnName="gio" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="cuacado" ColumnName="cuacado" />
+                <ScalarProperty Name="cachthuccado" ColumnName="cachthuccado" />
+                <ScalarProperty Name="tylechap" ColumnName="tylechap" />
+                <ScalarProperty Name="hinhthuccado" ColumnName="hinhthuccado" />
+                <ScalarProperty Name="doibong1" ColumnName="doibong1" />
+                <ScalarProperty Name="doibong2" ColumnName="doibong2" />
+                <ScalarProperty Name="tengiaidau" ColumnName="tengiaidau" />
+                <ScalarProperty Name="giaidaumorong" ColumnName="giaidaumorong" />
+                <ScalarProperty Name="tylecuoc" ColumnName="tylecuoc" />
+                <ScalarProperty Name="tiencuoc" ColumnName="tiencuoc" />
+                <ScalarProperty Name="tienthang_thua" ColumnName="tienthang_thua" />
+                <ScalarProperty Name="ketqua_trongkeo" ColumnName="ketqua_trongkeo" />
+                <ScalarProperty Name="com" ColumnName="com" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="hiepcado" ColumnName="hiepcado" />
+                <ScalarProperty Name="weekofyear" ColumnName="weekofyear" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_quanlytk">
+            <EntityTypeMapping TypeName="cobac4Model.view_quanlytk">
+              <MappingFragment StoreEntitySet="view_quanlytk">
+                <ScalarProperty Name="idTK" ColumnName="idTK" />
+                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
+                <ScalarProperty Name="TenTkDayDU" ColumnName="TenTkDayDU" />
+                <ScalarProperty Name="TenTk" ColumnName="TenTk" />
+                <ScalarProperty Name="NguoiCaDoCung" ColumnName="NguoiCaDoCung" />
+                <ScalarProperty Name="TenNguoiCaDoCung" ColumnName="TenNguoiCaDoCung" />
+                <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_thongtinchung">
+            <EntityTypeMapping TypeName="cobac4Model.view_thongtinchung">
+              <MappingFragment StoreEntitySet="view_thongtinchung">
+                <ScalarProperty Name="idthongtin" ColumnName="idthongtin" />
+                <ScalarProperty Name="id_quanlyTK_idTK" ColumnName="id_quanlyTK_idTK" />
+                <ScalarProperty Name="thoigiancado" ColumnName="thoigiancado" />
+                <ScalarProperty Name="gio" ColumnName="gio" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="cuacado" ColumnName="cuacado" />
+                <ScalarProperty Name="cachthuccado" ColumnName="cachthuccado" />
+                <ScalarProperty Name="tylechap" ColumnName="tylechap" />
+                <ScalarProperty Name="hinhthuccado" ColumnName="hinhthuccado" />
+                <ScalarProperty Name="doibong1" ColumnName="doibong1" />
+                <ScalarProperty Name="doibong2" ColumnName="doibong2" />
+                <ScalarProperty Name="tengiaidau" ColumnName="tengiaidau" />
+                <ScalarProperty Name="giaidaumorong" ColumnName="giaidaumorong" />
+                <ScalarProperty Name="tylecuoc" ColumnName="tylecuoc" />
+                <ScalarProperty Name="tiencuoc" ColumnName="tiencuoc" />
+                <ScalarProperty Name="tienthang_thua" ColumnName="tienthang_thua" />
+                <ScalarProperty Name="ketqua_trongkeo" ColumnName="ketqua_trongkeo" />
+                <ScalarProperty Name="com" ColumnName="com" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="hiepcado" ColumnName="hiepcado" />
+                <ScalarProperty Name="weekofyear" ColumnName="weekofyear" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="proc_cachthuccado" FunctionName="cobac4Model.Store.proc_cachthuccado" />
+          <FunctionImportMapping FunctionImportName="proc_sotaikhoan" FunctionName="cobac4Model.Store.proc_sotaikhoan" />
+          <FunctionImportMapping FunctionImportName="proc_tendoibong" FunctionName="cobac4Model.Store.proc_tendoibong" />
+          <FunctionImportMapping FunctionImportName="proc_tengiaidau" FunctionName="cobac4Model.Store.proc_tengiaidau" />
+          <FunctionImportMapping FunctionImportName="show_hide" FunctionName="cobac4Model.Store.show_hide" />
+          <FunctionImportMapping FunctionImportName="thongtin" FunctionName="cobac4Model.Store.thongtin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cobac4Model.thongtin_Result">
+                <ScalarProperty Name="idTK" ColumnName="idTK" />
+                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
+                <ScalarProperty Name="idthongtin" ColumnName="idthongtin" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="gio" ColumnName="gio" />
+                <ScalarProperty Name="tentrandau" ColumnName="tentrandau" />
+                <ScalarProperty Name="gopthongtin" ColumnName="gopthongtin" />
+                <ScalarProperty Name="tylecuoc" ColumnName="tylecuoc" />
+                <ScalarProperty Name="tiencuoc" ColumnName="tiencuoc" />
+                <ScalarProperty Name="tienthang_thua" ColumnName="tienthang_thua" />
+                <ScalarProperty Name="com" ColumnName="com" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="thongtincado" FunctionName="cobac4Model.Store.thongtincado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cobac4Model.thongtincado_Result">
+                <ScalarProperty Name="idTK" ColumnName="idTK" />
+                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
+                <ScalarProperty Name="TenTk" ColumnName="TenTk" />
+                <ScalarProperty Name="TenTkDayDU" ColumnName="TenTkDayDU" />
+                <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
+                <ScalarProperty Name="NguoiCaDoCung" ColumnName="NguoiCaDoCung" />
+                <ScalarProperty Name="TenNguoiCaDoCung" ColumnName="TenNguoiCaDoCung" />
+                <ScalarProperty Name="tongketquatrongkeo" ColumnName="tongketquatrongkeo" />
+                <ScalarProperty Name="tienthang" ColumnName="tienthang" />
+                <ScalarProperty Name="tienthua" ColumnName="tienthua" />
+                <ScalarProperty Name="socom" ColumnName="socom" />
+                <ScalarProperty Name="thangthu" ColumnName="thangthu" />
+                <ScalarProperty Name="tongtiencuoc" ColumnName="tongtiencuoc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="timkiem" FunctionName="cobac4Model.Store.timkiem">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cobac4Model.timkiem_Result">
+                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
+                <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tinhtong" FunctionName="cobac4Model.Store.tinhtong">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cobac4Model.tinhtong_Result">
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="tentrandau" ColumnName="tentrandau" />
+                <ScalarProperty Name="USD" ColumnName="USD" />
+                <ScalarProperty Name="VND" ColumnName="VND" />
+                <ScalarProperty Name="USD1" ColumnName="USD1" />
+                <ScalarProperty Name="VND1" ColumnName="VND1" />
+                <ScalarProperty Name="tiencuocUSD" ColumnName="tiencuocUSD" />
+                <ScalarProperty Name="tiencuocVND" ColumnName="tiencuocVND" />
+                <ScalarProperty Name="tienthangUSD" ColumnName="tienthangUSD" />
+                <ScalarProperty Name="tienthangVND" ColumnName="tienthangVND" />
+                <ScalarProperty Name="tienthuaUSD" ColumnName="tienthuaUSD" />
+                <ScalarProperty Name="tienthuaVND" ColumnName="tienthuaVND" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

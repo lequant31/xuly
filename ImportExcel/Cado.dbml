@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="cobac2" Class="CadoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=cobac2;Persist Security Info=True;User ID=sa" SettingsObjectName="ImportExcel.Properties.Settings" SettingsPropertyName="cobac2ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.cachthuccado" Member="cachthuccados">
+    <Type Name="cachthuccado">
+      <Column Name="idcachthuccado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tencachthuccado" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.thongtinchung" Member="thongtinchungs">
+    <Type Name="thongtinchung">
+      <Column Name="idthongtin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_quanlyTK_idTK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="thoigiancado" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="gio" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ngay" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="cuacado" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cachthuccado" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tylechap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="hinhthuccado" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="doibong1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="doibong2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="tengiaidau" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="giaidaumorong" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="tylecuoc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tiencuoc" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="tienthang_thua" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="ketqua_trongkeo" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="com" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="trangthai" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="hiepcado" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="weekofyear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="quanlyTK_thongtinchung" Member="quanlyTK" ThisKey="id_quanlyTK_idTK" OtherKey="idTK" Type="quanlyTK" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.doibong" Member="doibongs">
+    <Type Name="doibong">
+      <Column Name="idtendoibong" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tendoibong" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.giaidau" Member="giaidaus">
+    <Type Name="giaidau">
+      <Column Name="idgiadau" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tengiaidau" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.quanlyTK" Member="quanlyTKs">
+    <Type Name="quanlyTK">
+      <Column Name="idTK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SoTK" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TenTkDayDU" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="TenTk" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NguoiCaDoCung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenNguoiCaDoCung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaUSDTK" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Association Name="quanlyTK_thongtinchung" Member="thongtinchungs" ThisKey="idTK" OtherKey="id_quanlyTK_idTK" Type="thongtinchung" />
+    </Type>
+  </Table>
+</Database>

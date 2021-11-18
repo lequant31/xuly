@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="cobac4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="cobac4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cachthuccado">
           <Key>
             <PropertyRef Name="idcachthuccado" />
@@ -37,6 +37,9 @@
           <Property Name="NguoiCaDoCung" Type="nvarchar" MaxLength="50" />
           <Property Name="TenNguoiCaDoCung" Type="nvarchar" MaxLength="50" />
           <Property Name="GiaUSDTK" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="TenDailyCap1" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullNameDailyCap1" Type="nvarchar" MaxLength="100" />
+          <Property Name="GiaUSDDailyCap1" Type="decimal" Precision="10" Scale="0" />
         </EntityType>
         <EntityType Name="thongtinchung">
           <Key>
@@ -78,6 +81,9 @@ warning 6002: The table/view 'cobac4.dbo.view_quanlytk' does not have a primary 
           <Property Name="NguoiCaDoCung" Type="nvarchar" MaxLength="50" />
           <Property Name="TenNguoiCaDoCung" Type="nvarchar" MaxLength="50" />
           <Property Name="GiaUSDTK" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="TenDailyCap1" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullNameDailyCap1" Type="nvarchar" MaxLength="100" />
+          <Property Name="GiaUSDDailyCap1" Type="decimal" Precision="10" Scale="0" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -159,7 +165,10 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
     [view_quanlytk].[TenTk] AS [TenTk], 
     [view_quanlytk].[NguoiCaDoCung] AS [NguoiCaDoCung], 
     [view_quanlytk].[TenNguoiCaDoCung] AS [TenNguoiCaDoCung], 
-    [view_quanlytk].[GiaUSDTK] AS [GiaUSDTK]
+    [view_quanlytk].[GiaUSDTK] AS [GiaUSDTK], 
+    [view_quanlytk].[TenDailyCap1] AS [TenDailyCap1], 
+    [view_quanlytk].[FullNameDailyCap1] AS [FullNameDailyCap1], 
+    [view_quanlytk].[GiaUSDDailyCap1] AS [GiaUSDDailyCap1]
     FROM [dbo].[view_quanlytk] AS [view_quanlytk]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="view_thongtinchung" EntityType="Self.view_thongtinchung" store:Type="Views" store:Schema="dbo">
@@ -193,8 +202,7 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
             <End Role="thongtinchung" EntitySet="thongtinchung" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cobac4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -205,32 +213,12 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
           <Property Name="idcachthuccado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tencachthuccado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="doibong">
-          <Key>
-            <PropertyRef Name="idtendoibong" />
-          </Key>
-          <Property Name="idtendoibong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tendoibong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <EntityType Name="giaidau">
           <Key>
             <PropertyRef Name="idgiadau" />
           </Key>
           <Property Name="idgiadau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tengiaidau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="quanlyTK">
-          <Key>
-            <PropertyRef Name="idTK" />
-          </Key>
-          <Property Name="idTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SoTK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TenTkDayDU" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="TenTk" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="NguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TenNguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GiaUSDTK" Type="Decimal" Precision="10" Scale="0" />
-          <NavigationProperty Name="thongtinchung" Relationship="Self.FK_thongtinchung_quanlyTK" FromRole="quanlyTK" ToRole="thongtinchung" />
         </EntityType>
         <EntityType Name="thongtinchung">
           <Key>
@@ -258,7 +246,7 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
           <Property Name="hiepcado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="weekofyear" Type="Int32" />
           <Property Name="visible" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="quanlyTK" Relationship="Self.FK_thongtinchung_quanlyTK" FromRole="thongtinchung" ToRole="quanlyTK" />
+          <NavigationProperty Name="quanlyTK" Relationship="cobac4Model.FK_thongtinchung_quanlyTK" FromRole="thongtinchung" ToRole="quanlyTK" />
         </EntityType>
         <EntityType Name="view_quanlytk">
           <Key>
@@ -271,6 +259,9 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
           <Property Name="NguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TenNguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GiaUSDTK" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="TenDailyCap1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullNameDailyCap1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GiaUSDDailyCap1" Type="Decimal" Precision="10" Scale="0" />
         </EntityType>
         <EntityType Name="view_thongtinchung">
           <Key>
@@ -303,33 +294,15 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
           <Property Name="weekofyear" Type="Int32" />
           <Property Name="visible" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK_thongtinchung_quanlyTK">
-          <End Role="quanlyTK" Type="Self.quanlyTK" Multiplicity="1" />
-          <End Role="thongtinchung" Type="Self.thongtinchung" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="quanlyTK">
-              <PropertyRef Name="idTK" />
-            </Principal>
-            <Dependent Role="thongtinchung">
-              <PropertyRef Name="id_quanlyTK_idTK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="cobacEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="cachthuccado" EntityType="Self.cachthuccado" />
-          <EntitySet Name="doibong" EntityType="Self.doibong" />
           <EntitySet Name="giaidau" EntityType="Self.giaidau" />
-          <EntitySet Name="quanlyTK" EntityType="Self.quanlyTK" />
           <EntitySet Name="thongtinchung" EntityType="Self.thongtinchung" />
           <EntitySet Name="view_quanlytk" EntityType="Self.view_quanlytk" />
           <EntitySet Name="view_thongtinchung" EntityType="Self.view_thongtinchung" />
-          <AssociationSet Name="FK_thongtinchung_quanlyTK" Association="Self.FK_thongtinchung_quanlyTK">
-            <End Role="quanlyTK" EntitySet="quanlyTK" />
-            <End Role="thongtinchung" EntitySet="thongtinchung" />
-          </AssociationSet>
           <FunctionImport Name="proc_cachthuccado" ReturnType="Collection(String)" />
           <FunctionImport Name="proc_sotaikhoan" ReturnType="Collection(String)">
-            <Parameter Name="sotk" Mode="In" Type="Int32" />
+          <Parameter Name="sotk" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="proc_tendoibong" ReturnType="Collection(String)" />
           <FunctionImport Name="proc_tengiaidau" ReturnType="Collection(String)" />
@@ -338,12 +311,18 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
             <Parameter Name="visible" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="thongtin" ReturnType="Collection(cobac4Model.thongtin_Result)">
-            <Parameter Name="idtk" Mode="In" Type="Int32" />
+          <Parameter Name="idtk" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="thongtincado" ReturnType="Collection(cobac4Model.thongtincado_Result)" />
           <FunctionImport Name="timkiem" ReturnType="Collection(cobac4Model.timkiem_Result)">
-            <Parameter Name="sotk" Mode="In" Type="String" />
+          <Parameter Name="sotk" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="doibong" EntityType="cobac4Model.doibong" />
+          <EntitySet Name="quanlyTK" EntityType="cobac4Model.quanlyTK" />
+          <AssociationSet Name="FK_thongtinchung_quanlyTK" Association="cobac4Model.FK_thongtinchung_quanlyTK">
+            <End Role="quanlyTK" EntitySet="quanlyTK" />
+            <End Role="thongtinchung" EntitySet="thongtinchung" />
+          </AssociationSet>
+          <FunctionImport Name="thongtincado" ReturnType="Collection(cobac4Model.thongtincado_Result)" />
           <FunctionImport Name="tinhtong" ReturnType="Collection(cobac4Model.tinhtong_Result)">
             <Parameter Name="idtk" Mode="In" Type="Int32" />
             <Parameter Name="tygia" Mode="In" Type="Decimal" />
@@ -364,6 +343,45 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
           <Property Type="Decimal" Name="com" Nullable="true" Precision="5" Scale="2" />
           <Property Type="String" Name="trangthai" Nullable="true" MaxLength="10" />
         </ComplexType>
+        <ComplexType Name="timkiem_Result">
+          <Property Type="String" Name="SoTK" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="GiaUSDTK" Nullable="true" Precision="10" Scale="0" />
+        </ComplexType>
+        <EntityType Name="doibong">
+          <Key>
+            <PropertyRef Name="idtendoibong" />
+          </Key>
+          <Property Name="idtendoibong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tendoibong" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="quanlyTK">
+          <Key>
+            <PropertyRef Name="idTK" />
+          </Key>
+          <Property Name="idTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoTK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TenTkDayDU" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="TenTk" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenNguoiCaDoCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GiaUSDTK" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="TenDailyCap1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullNameDailyCap1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GiaUSDDailyCap1" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="thongtinchung" Relationship="cobac4Model.FK_thongtinchung_quanlyTK" FromRole="quanlyTK" ToRole="thongtinchung" />
+        </EntityType>
+        <Association Name="FK_thongtinchung_quanlyTK">
+          <End Type="cobac4Model.quanlyTK" Role="quanlyTK" Multiplicity="1" />
+          <End Type="cobac4Model.thongtinchung" Role="thongtinchung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quanlyTK">
+              <PropertyRef Name="idTK" />
+            </Principal>
+            <Dependent Role="thongtinchung">
+              <PropertyRef Name="id_quanlyTK_idTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <ComplexType Name="thongtincado_Result">
           <Property Type="Int32" Name="idTK" Nullable="false" />
           <Property Type="String" Name="SoTK" Nullable="true" MaxLength="20" />
@@ -372,6 +390,9 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
           <Property Type="Decimal" Name="GiaUSDTK" Nullable="true" Precision="10" Scale="0" />
           <Property Type="String" Name="NguoiCaDoCung" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="TenNguoiCaDoCung" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TenDailyCap1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FullNameDailyCap1" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="GiaUSDDailyCap1" Nullable="true" Precision="10" Scale="0" />
           <Property Type="Decimal" Name="tongketquatrongkeo" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Decimal" Name="tienthang" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Decimal" Name="tienthua" Nullable="true" Precision="38" Scale="2" />
@@ -379,12 +400,7 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
           <Property Type="Decimal" Name="thangthu" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Decimal" Name="tongtiencuoc" Nullable="true" Precision="38" Scale="2" />
         </ComplexType>
-        <ComplexType Name="timkiem_Result">
-          <Property Type="String" Name="SoTK" Nullable="true" MaxLength="20" />
-          <Property Type="Decimal" Name="GiaUSDTK" Nullable="true" Precision="10" Scale="0" />
-        </ComplexType>
         <ComplexType Name="tinhtong_Result">
-          <Property Type="DateTime" Name="ngay" Nullable="false" />
           <Property Type="String" Name="tentrandau" Nullable="true" MaxLength="204" />
           <Property Type="Decimal" Name="USD" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Decimal" Name="VND" Nullable="true" Precision="38" Scale="2" />
@@ -411,32 +427,11 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="doibong">
-            <EntityTypeMapping TypeName="cobac4Model.doibong">
-              <MappingFragment StoreEntitySet="doibong">
-                <ScalarProperty Name="idtendoibong" ColumnName="idtendoibong" />
-                <ScalarProperty Name="tendoibong" ColumnName="tendoibong" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="giaidau">
             <EntityTypeMapping TypeName="cobac4Model.giaidau">
               <MappingFragment StoreEntitySet="giaidau">
                 <ScalarProperty Name="idgiadau" ColumnName="idgiadau" />
                 <ScalarProperty Name="tengiaidau" ColumnName="tengiaidau" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="quanlyTK">
-            <EntityTypeMapping TypeName="cobac4Model.quanlyTK">
-              <MappingFragment StoreEntitySet="quanlyTK">
-                <ScalarProperty Name="idTK" ColumnName="idTK" />
-                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
-                <ScalarProperty Name="TenTkDayDU" ColumnName="TenTkDayDU" />
-                <ScalarProperty Name="TenTk" ColumnName="TenTk" />
-                <ScalarProperty Name="NguoiCaDoCung" ColumnName="NguoiCaDoCung" />
-                <ScalarProperty Name="TenNguoiCaDoCung" ColumnName="TenNguoiCaDoCung" />
-                <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -471,6 +466,9 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
           <EntitySetMapping Name="view_quanlytk">
             <EntityTypeMapping TypeName="cobac4Model.view_quanlytk">
               <MappingFragment StoreEntitySet="view_quanlytk">
+                <ScalarProperty Name="GiaUSDDailyCap1" ColumnName="GiaUSDDailyCap1" />
+                <ScalarProperty Name="FullNameDailyCap1" ColumnName="FullNameDailyCap1" />
+                <ScalarProperty Name="TenDailyCap1" ColumnName="TenDailyCap1" />
                 <ScalarProperty Name="idTK" ColumnName="idTK" />
                 <ScalarProperty Name="SoTK" ColumnName="SoTK" />
                 <ScalarProperty Name="TenTkDayDU" ColumnName="TenTkDayDU" />
@@ -533,6 +531,38 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="timkiem" FunctionName="cobac4Model.Store.timkiem">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="cobac4Model.timkiem_Result">
+                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
+                <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="doibong">
+            <EntityTypeMapping TypeName="cobac4Model.doibong">
+              <MappingFragment StoreEntitySet="doibong">
+                <ScalarProperty Name="tendoibong" ColumnName="tendoibong" />
+                <ScalarProperty Name="idtendoibong" ColumnName="idtendoibong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quanlyTK">
+            <EntityTypeMapping TypeName="cobac4Model.quanlyTK">
+              <MappingFragment StoreEntitySet="quanlyTK">
+                <ScalarProperty Name="GiaUSDDailyCap1" ColumnName="GiaUSDDailyCap1" />
+                <ScalarProperty Name="FullNameDailyCap1" ColumnName="FullNameDailyCap1" />
+                <ScalarProperty Name="TenDailyCap1" ColumnName="TenDailyCap1" />
+                <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
+                <ScalarProperty Name="TenNguoiCaDoCung" ColumnName="TenNguoiCaDoCung" />
+                <ScalarProperty Name="NguoiCaDoCung" ColumnName="NguoiCaDoCung" />
+                <ScalarProperty Name="TenTk" ColumnName="TenTk" />
+                <ScalarProperty Name="TenTkDayDU" ColumnName="TenTkDayDU" />
+                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
+                <ScalarProperty Name="idTK" ColumnName="idTK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="thongtincado" FunctionName="cobac4Model.Store.thongtincado">
             <ResultMapping>
               <ComplexTypeMapping TypeName="cobac4Model.thongtincado_Result">
@@ -543,6 +573,9 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
                 <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
                 <ScalarProperty Name="NguoiCaDoCung" ColumnName="NguoiCaDoCung" />
                 <ScalarProperty Name="TenNguoiCaDoCung" ColumnName="TenNguoiCaDoCung" />
+                <ScalarProperty Name="TenDailyCap1" ColumnName="TenDailyCap1" />
+                <ScalarProperty Name="FullNameDailyCap1" ColumnName="FullNameDailyCap1" />
+                <ScalarProperty Name="GiaUSDDailyCap1" ColumnName="GiaUSDDailyCap1" />
                 <ScalarProperty Name="tongketquatrongkeo" ColumnName="tongketquatrongkeo" />
                 <ScalarProperty Name="tienthang" ColumnName="tienthang" />
                 <ScalarProperty Name="tienthua" ColumnName="tienthua" />
@@ -552,18 +585,9 @@ warning 6002: The table/view 'cobac4.dbo.view_thongtinchung' does not have a pri
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="timkiem" FunctionName="cobac4Model.Store.timkiem">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="cobac4Model.timkiem_Result">
-                <ScalarProperty Name="SoTK" ColumnName="SoTK" />
-                <ScalarProperty Name="GiaUSDTK" ColumnName="GiaUSDTK" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="tinhtong" FunctionName="cobac4Model.Store.tinhtong">
             <ResultMapping>
               <ComplexTypeMapping TypeName="cobac4Model.tinhtong_Result">
-                <ScalarProperty Name="ngay" ColumnName="ngay" />
                 <ScalarProperty Name="tentrandau" ColumnName="tentrandau" />
                 <ScalarProperty Name="USD" ColumnName="USD" />
                 <ScalarProperty Name="VND" ColumnName="VND" />

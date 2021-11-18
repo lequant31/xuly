@@ -13,7 +13,6 @@ namespace xuly
     
     public partial class tinhtong_Result
     {
-        public System.DateTime ngay { get; set; }
         public string tentrandau { get; set; }
         public Nullable<decimal> USD { get; set; }
         public Nullable<decimal> VND { get; set; }

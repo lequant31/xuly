@@ -28,12 +28,12 @@ namespace xuly
         }
     
         public virtual DbSet<cachthuccado> cachthuccado { get; set; }
-        public virtual DbSet<doibong> doibong { get; set; }
         public virtual DbSet<giaidau> giaidau { get; set; }
-        public virtual DbSet<quanlyTK> quanlyTK { get; set; }
         public virtual DbSet<thongtinchung> thongtinchung { get; set; }
         public virtual DbSet<view_quanlytk> view_quanlytk { get; set; }
         public virtual DbSet<view_thongtinchung> view_thongtinchung { get; set; }
+        public virtual DbSet<doibong> doibong { get; set; }
+        public virtual DbSet<quanlyTK> quanlyTK { get; set; }
     
         public virtual ObjectResult<string> proc_cachthuccado()
         {
@@ -81,11 +81,6 @@ namespace xuly
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<thongtin_Result>("thongtin", idtkParameter);
         }
     
-        public virtual ObjectResult<thongtincado_Result> thongtincado()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<thongtincado_Result>("thongtincado");
-        }
-    
         public virtual ObjectResult<timkiem_Result> timkiem(string sotk)
         {
             var sotkParameter = sotk != null ?
@@ -93,6 +88,11 @@ namespace xuly
                 new ObjectParameter("sotk", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<timkiem_Result>("timkiem", sotkParameter);
+        }
+    
+        public virtual ObjectResult<thongtincado_Result> thongtincado()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<thongtincado_Result>("thongtincado");
         }
     
         public virtual ObjectResult<tinhtong_Result> tinhtong(Nullable<int> idtk, Nullable<decimal> tygia)

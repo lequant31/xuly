@@ -1,44 +1,45 @@
 ﻿using DevExpress.XtraEditors;
-using Novacode;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xceed.Words.NET;
 
 namespace xuly
 {
     public partial class Thongtincado : Form
     {
-        cobacEntities cado = new cobacEntities();
-        doibong _doibong;
-        giaidau _giaidau;
+        private cobacEntities cado = new cobacEntities();
+        private doibong _doibong;
+        private giaidau _giaidau;
         private thongtinchung _thongtinchung;
-        cachthuccado _cachthucado;
+        private cachthuccado _cachthucado;
         public int? ID_Taikhoan;
         public string _masotaikhoan;
         private bool bool_sua = false;
         private bool bool_add = false;
         private int id_sua;
+
         public Thongtincado()
         {
             InitializeComponent();
         }
+
         private void FunSave()
         {
             #region check
+
             if (bool_add == false)
             {
                 XtraMessageBox.Show("Chưa chọn chức năng thêm mới");
                 return;
             }
-            #endregion
+
+            #endregion check
+
             //kiem tra nhap
             try
             {
@@ -49,7 +50,6 @@ namespace xuly
                     if (com_hiepcado.Text == "1h")
                     {
                         _thongtinchung.hiepcado = "1h";
-
                     }
                     if (com_hiepcado.Text == "Full time")
                     {
@@ -68,7 +68,6 @@ namespace xuly
                     string tengiaidau = cut_giaidau[0];
                     if (cut_giaidau.Count() == 2)
                     {
-
                         string tengiaiMoRong = cut_giaidau[1];
                         if (tengiaiMoRong == "SPECIALS" || tengiaiMoRong == "SPECIFIC 15 MINS")
                         {
@@ -87,7 +86,6 @@ namespace xuly
                         string giai = (string)Look_GiaiDau.Text;
                         _giaidau.tengiaidau = giai.ToUpper();
                         cado.giaidau.Add(_giaidau);
-
                     }
 
                     var k = cado.doibong.SingleOrDefault(p => p.tendoibong == (string)Look_TenDoi1.EditValue);
@@ -124,7 +122,6 @@ namespace xuly
                     _thongtinchung.hinhthuccado = Com_DangCaDo.Text;
                     if (Look_CachThucCaDo.Text == "")
                     {
-
                         _thongtinchung.cachthuccado = "";
                     }
                     else
@@ -157,7 +154,6 @@ namespace xuly
                     if (com_hiepcado.Text == "1h")
                     {
                         _thongtinchung.hiepcado = "1h";
-
                     }
                     if (com_hiepcado.Text == "Full time")
                     {
@@ -176,7 +172,6 @@ namespace xuly
                     string tengiaidau = cut_giaidau[0];
                     if (cut_giaidau.Count() == 2)
                     {
-
                         string tengiaiMoRong = cut_giaidau[1];
                         if (tengiaiMoRong == "SPECIALS" || tengiaiMoRong == "SPECIFIC 15 MINS")
                         {
@@ -195,7 +190,6 @@ namespace xuly
                         string giai = (string)Look_GiaiDau.Text;
                         _giaidau.tengiaidau = giai.ToUpper();
                         cado.giaidau.Add(_giaidau);
-
                     }
 
                     var k = cado.doibong.SingleOrDefault(p => p.tendoibong == (string)Look_TenDoi1.EditValue);
@@ -232,7 +226,6 @@ namespace xuly
                     _thongtinchung.hinhthuccado = Com_DangCaDo.Text;
                     if (Look_CachThucCaDo.Text == "")
                     {
-
                         _thongtinchung.cachthuccado = "";
                     }
                     else
@@ -262,12 +255,11 @@ namespace xuly
             }
             catch (Exception)
             {
-
                 XtraMessageBox.Show("Lưu thông tin không thành công");
                 throw;
             }
-
         }
+
         private void GetNull()
         {
             txt_HinhThucCaDo.EditValue = null;
@@ -283,6 +275,7 @@ namespace xuly
             Spin_SoCom.Value = 0;
             Com_trangThai.EditValue = null;
         }
+
         private void ReLoad()
         {
             var ten = cado.proc_sotaikhoan(ID_Taikhoan).SingleOrDefault();
@@ -340,13 +333,12 @@ namespace xuly
             var thongtin = cado.thongtin(ID_Taikhoan).ToList();
             grd_bongda.DataSource = thongtin;
         }
+
         private void FunPrint()
         {
             try
             {
-
                 //////////////////////////////////////////////////////////////////////////////
-
 
                 var taikhoan = new quanlyTK();
                 string fileName = @"C:\cadobongda\" + _masotaikhoan + ".doc";
@@ -355,13 +347,11 @@ namespace xuly
                     var layngay = cado.thongtinchung.Select(p => new { p.ngay }).Distinct().ToList();
                     foreach (var laysotran in layngay)
                     {
-
                         var laydoi = (from f in cado.thongtinchung
                                       where f.id_quanlyTK_idTK == ID_Taikhoan && f.ngay == laysotran.ngay
                                       select new
                                       {
                                           doibong = f.doibong1 + f.doibong2,
-
                                       }
                                ).ToList();
 
@@ -376,10 +366,8 @@ namespace xuly
 
                         doc.InsertParagraph("Kế quả cho ngày:" + laysotran.ngay.ToString("dd/MM/yyyy") + "số trận" + laydoi.Count());
 
-
                         //int a = 1;
                     }
-
 
                     doc.Save();
                 }
@@ -387,14 +375,15 @@ namespace xuly
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
+
         private void Thongtincado_Load(object sender, EventArgs e)
         {
             ReLoad();
         }
+
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -444,10 +433,10 @@ namespace xuly
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
+
         private void btn_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FunSave();
@@ -469,18 +458,16 @@ namespace xuly
                 }
                 else
                 {
-                    cado.show_hide((int)i,"Hide");
+                    cado.show_hide((int)i, "Hide");
                     //var xoathongtin = cado.thongtinchung.Where(a => a.idthongtin == (int)i).SingleOrDefault();
                     //cado.thongtinchung.Remove(xoathongtin);
                     cado.SaveChanges();
                     XtraMessageBox.Show("Xóa thành công");
                     //ReLoad();
                 }
-
             }
             catch (Exception)
             {
-
                 XtraMessageBox.Show("Xóa không thành công");
             }
         }
@@ -491,138 +478,134 @@ namespace xuly
             {
                 var db = new cobacEntities();
                 // Modify to suit your machine:
-                string fileName = @"C:\Cadobongda\"+_masotaikhoan+"(khach).doc";
+                string fileName = @"C:\Cadobongda\" + _masotaikhoan + "(khach).doc";
 
                 // Create a document in memory:
                 var doc = DocX.Create(fileName);
 
-                var lngay = db.view_thongtinchung.Where(p => p.id_quanlyTK_idTK == ID_Taikhoan).Select(p => new { p.ngay }).Distinct().ToList();
-                foreach (var ingay in lngay)
-                {
+                //var lngay = db.view_thongtinchung.Where(p => p.id_quanlyTK_idTK == ID_Taikhoan).Select(p => new { p.ngay }).Distinct().ToList();
+                //foreach (var ingay in lngay)
+                //{
+                //    //var SoTranTrongNgay = (from q in db.thongtinchung
+                //    //                       where q.ngay == (DateTime)ingay.ngay
+                //    //                       select new
+                //    //                       {
+                //    //                           DoiBong = q.doibong1 + q.doibong2
+                //    //                       }
+                //    //                       ).ToList();
 
-                    //var SoTranTrongNgay = (from q in db.thongtinchung
-                    //                       where q.ngay == (DateTime)ingay.ngay
-                    //                       select new
-                    //                       {
-                    //                           DoiBong = q.doibong1 + q.doibong2
-                    //                       }
-                    //                       ).ToList();
+                //    var ngay3 = String.Format("{0:dd/MM/yyyy}", ingay.ngay);
+                //doc.InsertParagraph("Kế quả cho ngày:" + ngay3+"\n\n");
 
-                    var ngay3 = String.Format("{0:dd/MM/yyyy}", ingay.ngay);
-                    //doc.InsertParagraph("Kế quả cho ngày:" + ngay3+"\n\n");
-
-                    //danh sách các trận đấu tương ứng với số kèo trong 1 ngày 
-                    var lkeo = (from t in db.view_thongtinchung
-                                    join tk in db.view_quanlytk on t.id_quanlyTK_idTK equals tk.idTK
-                                    where t.ngay == (DateTime)ingay.ngay && t.id_quanlyTK_idTK == this .ID_Taikhoan
-                                    select new
-                                    {
-                                        doi = t.doibong1 + t.doibong2
-                                    }).ToList();
-
-                    
-                        var lkeokeo = (from t in lkeo
-                                       group t by t.doi into th
-
-                                       select new
-                                       {
-                                           doi = th.Key,
-                                           so = th.Count()
-
-                                       }).ToList();
-
-                    //thông tin chi tiết từng trận đấu trong ngày
-                        var l = (from t in db.view_thongtinchung
-                                 join tk in db.view_quanlytk on t.id_quanlyTK_idTK equals tk.idTK
-                                 where t.ngay == (DateTime)ingay.ngay && t.id_quanlyTK_idTK ==this.ID_Taikhoan
-                                 select new
-                                 {
-                                     tk.GiaUSDTK,
-                                     tk.TenTkDayDU,
-                                     tk.TenTk,
-                                     tk.NguoiCaDoCung,
-                                     t.ngay,
-                                     t.doibong1,
-                                     t.doibong2,
-                                     t.tengiaidau,
-                                     t.trangthai,
-                                     t.hinhthuccado,
-                                     t.hiepcado,
-                                     t.tylechap,
-                                     t.tylecuoc,
-                                     t.cuacado,
-                                     t.tiencuoc,
-                                     doimoi = t.doibong1 + t.doibong2,
-                                     t.com,
-                                     t.gio,
-                                     t.ketqua_trongkeo,
-                                     chonkeocado=t.cuacado=="under" ? "Xỉu" : t.cuacado == "over" ? "Tài" : t.cuacado,//tên đội chưa có
-                                     t.cachthuccado,
-                                     
-                                     tienthangthua=t.tienthang_thua <0 ? t.tienthang_thua*-1 : t.tienthang_thua,
-                                     tuongungtienVNDthangthua = t.tienthang_thua < 0 ? t.tienthang_thua * tk.GiaUSDTK*-1 : t.tienthang_thua * tk.GiaUSDTK,
-                                     tiencuocvnd = t.tiencuoc * tk.GiaUSDTK
-
-                                 }).OrderBy(p => p.doimoi).ToList();
-
-                    //đếm số trận đấu trong ngày
-                    var sotran =lkeokeo.Count;
-                    //forrmat ngày
-                        var ngay1 = String.Format("{0:dd/MM/yyyy}", ingay.ngay);
-
-                    //hiện tiêu đề
-                        doc.InsertParagraph("Trong ngày " + ngay1 + " tôi có cá độ: "+sotran+" trận đấu gồm: ").Bold();
-
-                    //sử dụng để đếm số kèo trong cùng 1 trận trong ngày, bắt đầu từ 1
-                        var keothu = 1;
-                    var hettran = false;
-                    //số thứ tự
-                        var tt = 1;
-                    //bắt đầu hiện thị chi tiết trận đấu trong mỗi ngày
-                        foreach (var i in l)
-                        {
-                        if (keothu == 1)
-
-
-                        doc.InsertParagraph().Append(tt.ToString() +".").Bold().Append(" Trận đấu giữa hai đội " + i.doibong1 + " và " + i.doibong2 + " thuộc giải bóng đá: " + i.tengiaidau);
-                           
-                            //doc.InsertParagraph(" Trận đấu giữa hai đội " + i.doibong1 + " và " + i.doibong2 + " thuộc giải bóng đá: " + i.tengiaidau);
-                        //sử dụng để lưu số kèo trong 1 trận, mặc đinh ban đầu là 1 trận 1 kèo
-                        var keomax = 1;
-
-                        foreach (var j in lkeokeo)
-                        {
-                            if (i.doibong1 + i.doibong2 == j.doi)
+                //danh sách các trận đấu tương ứng với số kèo trong 1 ngày
+                var lkeo = (from t in db.view_thongtinchung
+                            join tk in db.view_quanlytk on t.id_quanlyTK_idTK equals tk.idTK
+                            where /*t.ngay == (DateTime)ingay.ngay &&*/ t.id_quanlyTK_idTK == this.ID_Taikhoan
+                            select new
                             {
-                                if (keothu == 1)
-                                    doc.InsertParagraph("     - Số kèo đấu đặt cá độ: " + j.so + " kèo.");
-                                keomax = j.so;
-                            }
-                        }
-                        if (keomax >1)
+                                doi = t.doibong1 + t.doibong2
+                            }).ToList();
+
+                var lkeokeo = (from t in lkeo
+                               group t by t.doi into th
+
+                               select new
+                               {
+                                   doi = th.Key,
+                                   so = th.Count()
+                               }).ToList();
+
+                //thông tin chi tiết từng trận đấu trong ngày
+                var l = (from t in db.view_thongtinchung
+                         join tk in db.view_quanlytk on t.id_quanlyTK_idTK equals tk.idTK
+                         where /*t.ngay == (DateTime)ingay.ngay &&*/ t.id_quanlyTK_idTK == this.ID_Taikhoan
+                         select new
+                         {
+                             tk.GiaUSDTK,
+                             tk.TenTkDayDU,
+                             tk.TenTk,
+                             tk.NguoiCaDoCung,
+                             t.ngay,
+                             t.doibong1,
+                             t.doibong2,
+                             t.tengiaidau,
+                             t.trangthai,
+                             t.hinhthuccado,
+                             t.hiepcado,
+                             t.tylechap,
+                             t.tylecuoc,
+                             t.cuacado,
+                             t.tiencuoc,
+                             doimoi = t.doibong1 + t.doibong2,
+                             t.com,
+                             t.gio,
+                             t.ketqua_trongkeo,
+                             chonkeocado = t.cuacado == "under" ? "Xỉu" : t.cuacado == "over" ? "Tài" : t.cuacado,//tên đội chưa có
+                             t.cachthuccado,
+
+                             tienthangthua = t.tienthang_thua < 0 ? t.tienthang_thua * -1 : t.tienthang_thua,
+                             tuongungtienVNDthangthua = t.tienthang_thua < 0 ? t.tienthang_thua * tk.GiaUSDTK * -1 : t.tienthang_thua * tk.GiaUSDTK,
+                             tiencuocvnd = t.tiencuoc * tk.GiaUSDTK
+                         }).OrderBy(p => p.doimoi).ToList();
+
+                //đếm số trận đấu trong ngày
+                var sotran = lkeokeo.Count;
+                //forrmat ngày
+                //var ngay1 = String.Format("{0:dd/MM/yyyy}", ingay.ngay);
+
+                //hiện tiêu đề
+                //doc.InsertParagraph("Trong ngày " + ngay1 + " tôi có cá độ: " + sotran + " trận đấu gồm: ").Bold();
+
+                //sử dụng để đếm số kèo trong cùng 1 trận trong ngày, bắt đầu từ 1
+                var keothu = 1;
+                var hettran = false;
+                //số thứ tự
+                var tt = 1;
+                //bắt đầu hiện thị chi tiết trận đấu trong mỗi ngày
+                foreach (var i in l)
+                {
+                    if (keothu == 1)
+
+                        doc.InsertParagraph().Append(tt.ToString() + ".").Bold().Append(" Trận đấu giữa hai đội " + i.doibong1 + " và " + i.doibong2 + " thuộc giải bóng đá: " + i.tengiaidau);
+
+                    //doc.InsertParagraph(" Trận đấu giữa hai đội " + i.doibong1 + " và " + i.doibong2 + " thuộc giải bóng đá: " + i.tengiaidau);
+                    //sử dụng để lưu số kèo trong 1 trận, mặc đinh ban đầu là 1 trận 1 kèo
+                    var keomax = 1;
+
+                    foreach (var j in lkeokeo)
+                    {
+                        if (i.doibong1 + i.doibong2 == j.doi)
                         {
-                            doc.InsertParagraph("     + Kèo thứ " + keothu);
+                            if (keothu == 1)
+                                doc.InsertParagraph("     - Số kèo đấu đặt cá độ: " + j.so + " kèo.");
+                            keomax = j.so;
                         }
-                       
-                        if (keomax > keothu)
-                        {
-                            keothu++;
-                        }
-                        else
-                        {
-                            hettran = true;
-                            keothu = 1;
-                        }
-                        var ngay = string.Format("{0:dd/MM/yyyy}", i.ngay);
-                        doc.InsertParagraph("     - Thời gian đặt kèo (thời gian nhập lệnh) cá độ: " + i.gio + " ngày " + ngay);
-                        if (i.trangthai== "Từ chối")
-                        {
-                            doc.InsertParagraph("     - Tình trạng kèo cá độ: Từ chối.");
-                        }
-                        else
-                            doc.InsertParagraph("     - Tình trạng kèo cá độ: Chấp nhận và hoàn thành.");                      
-                        if (i.hinhthuccado =="Tài - Xỉu")
-                        {
+                    }
+                    if (keomax > 1)
+                    {
+                        doc.InsertParagraph("     + Kèo thứ " + keothu);
+                    }
+
+                    if (keomax > keothu)
+                    {
+                        keothu++;
+                    }
+                    else
+                    {
+                        hettran = true;
+                        keothu = 1;
+                    }
+                    var ngay = string.Format("{0:dd/MM/yyyy}", i.ngay);
+                    doc.InsertParagraph("     - Thời gian đặt kèo (thời gian nhập lệnh) cá độ: " + i.gio + " ngày " + ngay);
+                    if (i.trangthai == "Từ chối")
+                    {
+                        doc.InsertParagraph("     - Tình trạng kèo cá độ: Từ chối.");
+                    }
+                    else
+                        doc.InsertParagraph("     - Tình trạng kèo cá độ: Chấp nhận và hoàn thành.");
+                    switch (i.hinhthuccado)
+                    {
+                        case "Tài - Xỉu":
                             string str1 = i.cachthuccado;
                             // tài xỉu phạt góc
                             if (str1.EndsWith("Corner") || str1.EndsWith("Corners"))
@@ -643,7 +626,6 @@ namespace xuly
                                         string solanphatgoc = i.cachthuccado.Remove(1);
                                         doc.InsertParagraph("     - Chọn kèo cá độ: Dự đoán đội được hưởng lần phạt góc và tỷ lệ chấp " + i.cuacado + ", tỷ lệ thắng thua: " + i.tylecuoc);
                                     }
-                                    
                                 }
                                 // cả trận
                                 else
@@ -651,14 +633,23 @@ namespace xuly
                                     doc.InsertParagraph("     - Cá độ dưới hình thức: Tài - Xỉu phạt góc cả trận");
                                     if (i.cachthuccado == "No. of Corners")
                                     {
-                                        doc.InsertParagraph("     - Chọn kèo cá độ và tỷ lệ chấp: " + i.chonkeocado  + ", tỷ lệ thắng thua: " + i.tylecuoc);
+                                        doc.InsertParagraph("     - Chọn kèo cá độ và tỷ lệ chấp: " + i.chonkeocado + ", tỷ lệ thắng thua: " + i.tylecuoc);
                                     }
-                                   
                                 }
-                                
+                            }
+                            // tài xỉu hiệp phụ
+                            if (str1.EndsWith("ET"))
+                            {
+                                doc.InsertParagraph("     - Cá độ dưới hình thức: Tài - Xỉu thi đấu hiệu phụ");
+                                doc.InsertParagraph("     - Chọn kèo cá độ và tỷ lệ chấp: " + i.chonkeocado + ", tỷ lệ thắng thua: " + i.tylecuoc);
+                            }
+                            if (str1.EndsWith("Total Bookings"))
+                            {
+                                doc.InsertParagraph("     - Cá độ dưới hình thức: Tài - Xỉu thẻ phạt");
+                                doc.InsertParagraph("     - Chọn kèo cá độ và tỷ lệ chấp: " + i.chonkeocado + ", tỷ lệ thắng thua: " + i.tylecuoc);
                             }
                             // tài xỉu tổng số bàn thắng
-                            else
+                            if (str1.EndsWith(" "))
                             {
                                 //hiệp 1
                                 if (i.hiepcado == "1h")
@@ -676,18 +667,14 @@ namespace xuly
                                 }
                                 doc.InsertParagraph("     - Chọn kèo cá độ và tỷ lệ chấp: " + i.chonkeocado + ", tỷ lệ thắng thua: " + i.tylecuoc);
                             }
-                        }
+                            break;
 
-                        /////////////////////////////////hết tài xỉu - chuyển sang kèo
-                        // cá độ kèo
-                        if ( i.hinhthuccado =="Kèo")
-                        {
+                        case "Kèo":
                             string str = i.cachthuccado;
                             if (str.EndsWith("Corner") || str.EndsWith("Corners"))
                             {
                                 if (i.cachthuccado != "No. of Corners")
                                 {
-                                
                                     if (i.hiepcado == "1h")
                                     {
                                         doc.InsertParagraph("     - Cá độ dưới hình thức: Kèo phạt góc hiệp 1");
@@ -699,7 +686,6 @@ namespace xuly
                                     string solanphatgoc = i.cachthuccado.Remove(1);
                                     doc.InsertParagraph("     - Chọn kèo cá độ: Dự đoán đội được hưởng số lần phạt góc và tỷ lệ chấp " + i.cuacado + ", tỷ lệ thắng thua: " + i.tylecuoc);
                                 }
-                                
                             }
                             // kèo thắng thua
                             else
@@ -714,73 +700,80 @@ namespace xuly
                                 }
                                 doc.InsertParagraph("     - Chọn kèo cá độ: Chọn đội thắng và tỷ lệ chấp " + i.cuacado + ", tỷ lệ thắng thua: " + i.tylecuoc);
                             }
-                        }
+                            break;
 
-                        if ( i.hinhthuccado == "Kết quả chính xác")
+                        case "Kết quả chính xác":
+                            doc.InsertParagraph("     - Cá độ dưới hình thức: Kèo dự đoán kết quả chính xác");
+
+                            doc.InsertParagraph("     - Chọn kèo cá độ: Dự đoán kết quả " + i.cuacado + ", tỷ lệ thắng thua: " + i.tylecuoc);
+                            break;
+                    }
+
+                    //if (i.hinhthuccado == "Tài - Xỉu")
+                    //{
+                    //}
+
+                    /////////////////////////////////hết tài xỉu - chuyển sang kèo
+                    // cá độ kèo
+                    //if (i.hinhthuccado == "Kèo")
+                    //{
+                    //}
+
+                    //if (i.hinhthuccado == "Kết quả chính xác")
+                    //{
+                    //    // kèo thắng thua
+
+                    //}
+
+                    // doc.InsertParagraph("     - Cá độ dưới hình thức:" + i.hinhthuccado);
+                    // doc.InsertParagraph("     - Chọn kèo cá độ: " + i.chonkeocado+", tỷ lệ chấp: " + i.tylechap + " " + "(" + i.cachthuccado + " " + i.tylechap + ")" + ", tỷ lệ thắng thua: " + i.tylecuoc);
+                    var tiencuocVND = String.Format("{0:N}", i.tiencuocvnd);
+                    doc.InsertParagraph("     - Số tiền tham gia cá độ: " + i.tiencuoc + "$ " + "(Tương ứng với số tiền: " + tiencuocVND + "đ).");
+                    if (i.trangthai == "Từ chối")
+                    {
+                    }
+                    else
+                    {
+                        doc.InsertParagraph("     - Số COM: " + i.com);
+                        var tienthangthuaVND = String.Format("{0:N}", i.tuongungtienVNDthangthua);
+
+                        if (i.trangthai == "Hòa")
                         {
-                           
-                            // kèo thắng thua
-                          
-                                 doc.InsertParagraph("     - Cá độ dưới hình thức: Kèo dự đoán kết quả chính xác");
-                                
-                                doc.InsertParagraph("     - Chọn kèo cá độ: Dự đoán kết quả " + i.cuacado + ", tỷ lệ thắng thua: " + i.tylecuoc);
-                            
-                        }
-                       
-                       // doc.InsertParagraph("     - Cá độ dưới hình thức:" + i.hinhthuccado);
-                       // doc.InsertParagraph("     - Chọn kèo cá độ: " + i.chonkeocado+", tỷ lệ chấp: " + i.tylechap + " " + "(" + i.cachthuccado + " " + i.tylechap + ")" + ", tỷ lệ thắng thua: " + i.tylecuoc);
-                        var tiencuocVND = String.Format("{0:N}", i.tiencuocvnd);
-                        doc.InsertParagraph("     - Số tiền tham gia cá độ: " + i.tiencuoc + "$ " + "(Tương ứng với số tiền: " + tiencuocVND + "đ).");
-                        if(i.trangthai == "Từ chối")
-                        {
-                            
+                            doc.InsertParagraph("     - Kết quả: " + i.trangthai);
                         }
                         else
                         {
-                            doc.InsertParagraph("     - Số COM: " + i.com);
-                            var tienthangthuaVND = String.Format("{0:N}", i.tuongungtienVNDthangthua);
-
-                            if (i.trangthai == "Hòa")
-                            {
-                                doc.InsertParagraph("     - Kết quả: " + i.trangthai);
-                            }
-
-                            else
-                            {
-                                string vietthuong = i.trangthai.ToLower();
-                                doc.InsertParagraph("     - Kết quả: " + i.trangthai + ", số tiền " + vietthuong + " cá độ: " + i.tienthangthua + "$ (tương ứng với số tiền: " + tienthangthuaVND + "đ)");
-                            }
-
-                            var tiencuoctrongkeoVND = String.Format("{0:N}", i.ketqua_trongkeo * i.GiaUSDTK);
-                            if (keomax != 1)
-                                doc.InsertParagraph("Như vậy trong kèo cá độ này số tiền tôi(" + i.TenTk + ") đánh bạc là: (" + i.ketqua_trongkeo + "$) tương ứng với số tiền (" + tiencuoctrongkeoVND + "đ)\n");
+                            string vietthuong = i.trangthai.ToLower();
+                            doc.InsertParagraph("     - Kết quả: " + i.trangthai + ", số tiền " + vietthuong + " cá độ: " + i.tienthangthua + "$ (tương ứng với số tiền: " + tienthangthuaVND + "đ)");
                         }
-                        
-                        if(hettran==true)
-                        {
-                            var tien = l.Where(p => p.doibong1 == i.doibong1 && p.doibong2 == i.doibong2).Where(a=>a.trangthai !="Từ chối").Sum(p => p.ketqua_trongkeo);
-                            
-                            var tiencuoctrongtranVND = String.Format("{0:N}", tien * i.GiaUSDTK);
-                            doc.InsertParagraph("Như vậy trong trận này tổng số tiền tôi("+i.TenTk+ ") đánh bạc là: (" + tien + "$) tương ứng với số tiền (" + tiencuoctrongtranVND + "đ)\n");
-                            tt++;
-                            hettran = false;
-                        }
-                        
+
+                        var tiencuoctrongkeoVND = String.Format("{0:N}", i.ketqua_trongkeo * i.GiaUSDTK);
+                        if (keomax != 1)
+                            doc.InsertParagraph("Như vậy trong kèo cá độ này số tiền tôi(" + i.TenTk + ") đánh bạc là: (" + i.ketqua_trongkeo + "$) tương ứng với số tiền (" + tiencuoctrongkeoVND + "đ)\n");
                     }
-                    //kêt quả trong ngày của 1 tài khoản
-                    var ketquatrongngay = l.Where(a => a.trangthai != "Từ chối").Sum(p => p.ketqua_trongkeo);
-                    var tiencuoctrongngayVND = String.Format("{0:N}", ketquatrongngay * l.First().GiaUSDTK);
-                    doc.InsertParagraph("Vậy, trong ngày: "+ngay3+" tổng số tiền mà tôi(" +l.First().TenTk + ") đánh bạc là: (" + ketquatrongngay + ") tương ứng với số tiền (" + tiencuoctrongngayVND + "đ)\n");
+
+                    if (hettran == true)
+                    {
+                        var tien = l.Where(p => p.doibong1 == i.doibong1 && p.doibong2 == i.doibong2).Where(a => a.trangthai != "Từ chối").Sum(p => p.ketqua_trongkeo);
+
+                        var tiencuoctrongtranVND = String.Format("{0:N}", tien * i.GiaUSDTK);
+                        doc.InsertParagraph("Như vậy trong trận này tổng số tiền tôi(" + i.TenTk + ") đánh bạc là: (" + tien + "$) tương ứng với số tiền (" + tiencuoctrongtranVND + "đ)\n");
+                        tt++;
+                        hettran = false;
+                    }
                 }
+                //kêt quả trong ngày của 1 tài khoản
+                //var ketquatrongngay = l.Where(a => a.trangthai != "Từ chối").Sum(p => p.ketqua_trongkeo);
+                //var tiencuoctrongngayVND = String.Format("{0:N}", ketquatrongngay * l.First().GiaUSDTK);
+                //doc.InsertParagraph("Vậy, trong ngày: " + ngay3 + " tổng số tiền mà tôi(" + l.First().TenTk + ") đánh bạc là: (" + ketquatrongngay + ") tương ứng với số tiền (" + tiencuoctrongngayVND + "đ)\n");
+                //}
                 // Save to the output directory:
                 doc.Save();
-           
-                Process.Start("WINWORD.EXE", fileName);
 
-                }
+                Process.Start("WINWORD.EXE", fileName);
+            }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -816,11 +809,9 @@ namespace xuly
                     XtraMessageBox.Show("khôi phục thành công");
                     //ReLoad();
                 }
-
             }
             catch (Exception)
             {
-
                 XtraMessageBox.Show("Khôi phục không thành công");
             }
         }
@@ -830,15 +821,14 @@ namespace xuly
             if (e.RowHandle >= 0)
             {
                 string priority = gridView1.GetRowCellDisplayText(e.RowHandle, gridView1.Columns["visible"]);
-              
+
                 if (priority == "Hide")
                 {
                     e.Appearance.BackColor = Color.Yellow;
-                }              
+                }
                 if (priority == "Show")
                 {
                     e.Appearance.BackColor = Color.White;
-                    
                 }
             }
         }
@@ -924,14 +914,12 @@ namespace xuly
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
         private void grd_bongda_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

@@ -27,6 +27,9 @@ namespace xuly
         public string NguoiCaDoCung { get; set; }
         public string TenNguoiCaDoCung { get; set; }
         public Nullable<decimal> GiaUSDTK { get; set; }
+        public string TenDailyCap1 { get; set; }
+        public string FullNameDailyCap1 { get; set; }
+        public Nullable<decimal> GiaUSDDailyCap1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<thongtinchung> thongtinchung { get; set; }

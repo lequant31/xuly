@@ -31,6 +31,9 @@ namespace xuly
                 sua.GiaUSDTK = Spin_GiaUSD.Value;
                 sua.NguoiCaDoCung = txt_cadovoi.Text;
                 sua.TenNguoiCaDoCung = txt_TenNguoiCaDoCung.Text;
+                sua.FullNameDailyCap1 = txt_tendailycap1.Text;
+                sua.TenDailyCap1 = txt_tenthuonggoidailycap1.Text;
+                sua.GiaUSDDailyCap1 = spin_tygia2.Value;
                 bool_sua = false;
             }
             else
@@ -44,6 +47,9 @@ namespace xuly
                     _QuanLyTK.GiaUSDTK = Spin_GiaUSD.Value;
                     _QuanLyTK.NguoiCaDoCung = txt_cadovoi.Text;
                     _QuanLyTK.TenNguoiCaDoCung = txt_TenNguoiCaDoCung.Text;
+                    _QuanLyTK.FullNameDailyCap1 = txt_tendailycap1.Text;
+                    _QuanLyTK.TenDailyCap1 = txt_tenthuonggoidailycap1.Text;
+                    _QuanLyTK.GiaUSDDailyCap1 = spin_tygia2.Value;
                     if (kiemtra == null)
                     {
                         _cobacEntity.quanlyTK.Add(_QuanLyTK);
@@ -153,7 +159,9 @@ namespace xuly
                     {
                         Spin_GiaUSD.Value = (Decimal)sua.GiaUSDTK;
                     }
-                    
+                    txt_tenthuonggoidailycap1.EditValue = sua.TenDailyCap1;
+                    txt_tendailycap1.EditValue = sua.FullNameDailyCap1;
+                    spin_tygia2.EditValue = sua.GiaUSDDailyCap1;
                     txt_cadovoi.EditValue = sua.NguoiCaDoCung;
                     txt_TenNguoiCaDoCung.EditValue = sua.TenNguoiCaDoCung;
                     bool_sua = true;
@@ -227,6 +235,9 @@ namespace xuly
 
                     txt_cadovoi.EditValue = sua.NguoiCaDoCung;
                     txt_TenNguoiCaDoCung.EditValue = sua.TenNguoiCaDoCung;
+                    txt_tenthuonggoidailycap1.EditValue = sua.TenDailyCap1;
+                    txt_tendailycap1.EditValue = sua.FullNameDailyCap1;
+                    spin_tygia2.EditValue = sua.GiaUSDDailyCap1;
                     bool_sua = true;
                     id_sua = (int)i;
                 }

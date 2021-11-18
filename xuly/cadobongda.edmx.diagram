@@ -6,13 +6,13 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0c8d5a168d8f464ebb4fa31eeb38f20e" Name="Diagram1">
         <EntityTypeShape EntityType="cobac4Model.cachthuccado" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cobac4Model.doibong" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cobac4Model.giaidau" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cobac4Model.quanlyTK" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="cobac4Model.thongtinchung" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="cobac4Model.view_quanlytk" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cobac4Model.view_thongtinchung" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <AssociationConnector Association="cobac4Model.FK_thongtinchung_quanlyTK" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cobac4Model.doibong" Width="1.5" PointX="8.375" PointY="4.75" />
+        <EntityTypeShape EntityType="cobac4Model.quanlyTK" Width="1.5" PointX="0.75" PointY="2.25" />
+        <AssociationConnector Association="cobac4Model.FK_thongtinchung_quanlyTK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

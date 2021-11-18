@@ -86,7 +86,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1073, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1258, 0);
             // 
             // barDockControlBottom
             // 
@@ -94,7 +94,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 450);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1073, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1258, 0);
             // 
             // barDockControlLeft
             // 
@@ -108,7 +108,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1073, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1258, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 450);
             // 
@@ -131,7 +131,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1073, 450);
+            this.panelControl1.Size = new System.Drawing.Size(1258, 450);
             this.panelControl1.TabIndex = 4;
             // 
             // layoutControl1
@@ -141,7 +141,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1069, 446);
+            this.layoutControl1.Size = new System.Drawing.Size(1254, 446);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -151,7 +151,7 @@
             this.gc_thongke.MainView = this.gv_thongke;
             this.gc_thongke.MenuManager = this.barManager1;
             this.gc_thongke.Name = "gc_thongke";
-            this.gc_thongke.Size = new System.Drawing.Size(1045, 422);
+            this.gc_thongke.Size = new System.Drawing.Size(1230, 422);
             this.gc_thongke.TabIndex = 4;
             this.gc_thongke.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_thongke});
@@ -188,8 +188,6 @@
             this.gridColumn1.FieldName = "ngay";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
             this.gridColumn1.Width = 79;
             // 
             // gridColumn2
@@ -201,7 +199,7 @@
             this.gridColumn2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "tentrandau", "Tổng số trận:{0}")});
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 0;
             this.gridColumn2.Width = 86;
             // 
             // gridColumn3
@@ -215,8 +213,8 @@
             this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "USD", "SUM={0:0.##}")});
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 115;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 147;
             // 
             // gridColumn4
             // 
@@ -229,8 +227,8 @@
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "VND", "SUM={0:N}")});
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 115;
+            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 146;
             // 
             // gridColumn5
             // 
@@ -242,8 +240,8 @@
             this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "USD1", "SUM={0:N}")});
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 115;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 155;
             // 
             // gridColumn6
             // 
@@ -255,8 +253,8 @@
             this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "VND1", "SUM={0:N}")});
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 82;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 162;
             // 
             // gridColumn7
             // 
@@ -268,7 +266,8 @@
             this.gridColumn7.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tiencuocUSD", "SUM={0:0.##}")});
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.VisibleIndex = 5;
+            this.gridColumn7.Width = 156;
             // 
             // gridColumn8
             // 
@@ -280,7 +279,8 @@
             this.gridColumn8.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tiencuocVND", "SUM={0:0.##}")});
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
+            this.gridColumn8.VisibleIndex = 6;
+            this.gridColumn8.Width = 152;
             // 
             // gridColumn9
             // 
@@ -292,7 +292,8 @@
             this.gridColumn9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tienthangUSD", "SUM={0:0.##}")});
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
+            this.gridColumn9.VisibleIndex = 7;
+            this.gridColumn9.Width = 153;
             // 
             // gridColumn10
             // 
@@ -304,7 +305,8 @@
             this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tienthangVND", "SUM={0:0.##}")});
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 9;
+            this.gridColumn10.VisibleIndex = 8;
+            this.gridColumn10.Width = 148;
             // 
             // gridColumn11
             // 
@@ -316,7 +318,8 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tienthuaUSD", "SUM={0:0.##}")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 10;
+            this.gridColumn11.VisibleIndex = 9;
+            this.gridColumn11.Width = 155;
             // 
             // gridColumn12
             // 
@@ -328,7 +331,8 @@
             this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tienthuaVND", "SUM={0:0.##}")});
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 11;
+            this.gridColumn12.VisibleIndex = 10;
+            this.gridColumn12.Width = 150;
             // 
             // layoutControlGroup1
             // 
@@ -337,7 +341,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1069, 446);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1254, 446);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -345,7 +349,7 @@
             this.layoutControlItem1.Control = this.gc_thongke;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1049, 426);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1234, 426);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -353,7 +357,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 450);
+            this.ClientSize = new System.Drawing.Size(1258, 450);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
